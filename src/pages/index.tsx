@@ -1,9 +1,48 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import styled from 'styled-components';
+import { LinkText, Title } from 'styles/BaseStyled';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
+  const Grid = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+  `;
+
+  const Card = styled.a`
+    margin: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    max-width: 300px;
+    color: inherit;
+    text-decoration: none;
+    &:hover,
+    &:active,
+    &:focus {
+      color: #0070f3;
+      border-color: #0070f3;
+    }
+    h2 {
+      margin: 0 0 1rem 0;
+      font-size: 1.5rem;
+    }
+    p {
+      margin: 0;
+      font-size: 1.25rem;
+      line-height: 1.5;
+    }
+  `;
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,38 +52,35 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href='https://nextjs.org'>Next.js!</a>
-        </h1>
+        <Title>
+          Welcome to <LinkText href='https://nextjs.org'>Next.js!</LinkText>
+        </Title>
 
         <p className={styles.description}>
           Get started by editing <code className={styles.code}>pages/index.tsx</code>
         </p>
 
-        <div className={styles.grid}>
-          <a href='https://nextjs.org/docs' className={styles.card}>
+        <Grid>
+          <Card href='https://nextjs.org/docs'>
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          </Card>
 
-          <a href='https://nextjs.org/learn' className={styles.card}>
+          <Card href='https://nextjs.org/learn'>
             <h2>Learn &rarr;</h2>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+          </Card>
 
-          <a href='https://github.com/vercel/next.js/tree/canary/examples' className={styles.card}>
+          <Card href='https://github.com/vercel/next.js/tree/canary/examples'>
             <h2>Examples &rarr;</h2>
             <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+          </Card>
 
-          <a
-            href='https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-            className={styles.card}
-          >
+          <Card href='https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'>
             <h2>Deploy &rarr;</h2>
             <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
-        </div>
+          </Card>
+        </Grid>
       </main>
 
       <footer className={styles.footer}>
